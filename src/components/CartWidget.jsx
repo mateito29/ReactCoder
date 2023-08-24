@@ -6,10 +6,11 @@ const CartWidget = () => {
     <div>
     <Flex>
     <Box>
-    <div>🛒</div>
+    <div className='carrito-icono'>🛒</div>
     </Box>
+    <Divider/>
     <Box>
-    <h1>6</h1>
+    <h1 className='carrito-numero'>6</h1>
     </Box>
     </Flex>
     </div>

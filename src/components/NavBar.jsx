@@ -4,16 +4,18 @@ import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
-    <div>
-      <Menu>
+    <div className="container">
+      <div className="titulo-brand">
         <h3>OllasDeBarroCBA</h3>
-        <MenuButton>
+      </div>
+      <Menu className="menu-container">
+        <MenuButton className="menu-button">
           Categorias
         </MenuButton>
-        <MenuList>
-          <MenuItem>Categoria A</MenuItem>
-          <MenuItem>Categoria B</MenuItem>
-          <MenuItem>Categoria C</MenuItem>
+        <MenuList className="menu-list">
+          <MenuItem className="menu-item">Categoria A</MenuItem>
+          <MenuItem className="menu-item">Categoria B</MenuItem>
+          <MenuItem className="menu-item">Categoria C</MenuItem>
         </MenuList>
       </Menu>
       <CartWidget></CartWidget>
