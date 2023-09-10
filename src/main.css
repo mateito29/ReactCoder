@@ -1,47 +1,81 @@
-.container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgb(129, 52, 0);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
-    height: 70px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.menu-button{
-   border:2px black solid;
-   border-radius: 10px;
-   padding: 10px 50px;
-   transition: .8s;
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fef7d5;
+  font-family: Unna;
+  color: #58534c;
+  height: 70px;
 }
 
-.menu-button:hover{
-    color: rgba(247, 158, 85, 0.836);
+.menu-button {
+  border: 2px black solid;
+  border-radius: 10px;
+  padding: 10px 50px;
+  transition: 0.8s;
 }
 
-.titulo-brand{
-   font-size: 1.4rem;
-   transition: .8s;
-   cursor: pointer;
+.menu-button:hover {
+  color: rgba(247, 158, 85, 0.836);
 }
 
-.titulo-brand:hover{
-    color: rgba(247, 158, 85, 0.836);
-}
-.css-r6z5ec{
-    box-shadow: 10px 0px 20px 0px black;
-    
-}
-.menu-list .menu-item {
-    color: black;
+.titulo-brand {
+  font-size: 1.4rem;
+  transition: 0.8s;
+  cursor: pointer;
 }
 
-.carrito-icono ,.carrito-numero{
-    font-size: 1.2rem;
+.titulo-brand:hover {
+  color: rgba(247, 158, 85, 0.836);
 }
 
-.titulo-container{
-    display: grid;
-    place-items: center;
-    height: 100vh;
+.css-1a7q9t8 {
+  justify-content: center;
 }
+.carrito-icono,
+.carrito-numero {
+  font-size: 1.2rem;
+  transition: 0.5s;
+}
+
+.carrito-icono:hover {
+  color: rgba(247, 158, 85, 0.836);
+}
+
+.count-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3px;
+  gap: 2rem;
+  color: white;
+  border-radius: 1rem;
+}
+
+.item-count {
+  background-color: black;
+  border-radius: 1rem;
+  padding: 5px 20px 5px 20px;
+}
+.item-count:hover {
+  background-color: rgb(197, 79, 0);
+}
+.parrafo-count {
+  background-color: black;
+  padding: 5px 30px 5px 30px;
+  border-radius: 1rem;
+}
+.parrafo-count:hover {
+  background-color: rgb(197, 79, 0);
+}
+
+.item-container{
+  display: flex;
+  gap: 1rem;
+}
+

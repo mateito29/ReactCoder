@@ -1,11 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import ItemList from "./ItemList";
-import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail";
+import { Flex } from "@chakra-ui/react";
 
-// Define el componente ItemListContainer
-const ItemListContainer = () => {
-  const { categoria } = useParams();
+const ItemDetailContainer = () => {
   const productos = [
     {
       id: 1,
@@ -62,28 +60,48 @@ const ItemListContainer = () => {
       precio: 600,
     },
   ];
-  const getProductos = new Promise((resolve, reject) => {
-    if (productos.length > 0) {
+  const getProductos = new Promise ((resolve, reject) =>{
+    if (productos.length > 0){
       setTimeout(() => {
-        resolve(productos);
+        resolve(productos)
       }, 2000);
-    } else {
-      reject(new Error("No hay mas productos"));
+    }else{
+      reject(new Error("No hay mas productos"))
     }
   });
-  getProductos
-    .then((res) => {})
-    .catch((error) => {
-      console.log(error);
-    });
-  const prodoctoFiltrados = productos.filter(
-    (producto) => producto.categoria === categoria
-  );
-  return categoria ? (
-    <ItemList productos={prodoctoFiltrados} />
-  ) : (
-    <ItemList productos={productos} />
+  getProductos.then((res) =>{
+
+  }).catch((error) =>{
+    console.log(error);
+  });
+ /*  // Define una función asincrónica 'getProducts' para obtener datos de una API
+  const getProducts = async () => {
+    const response = await fetch("https://fakestoreapi.com/products");
+    const data = await response.json();
+
+    return data;
+  };
+
+ // Establece el estado inicial de 'product' como un arreglo vacío
+  const [product, setProduct] = useState([]);
+  // Utiliza 'useEffect' para cargar los productos de la API cuando el componente se monta
+  useEffect(() => {
+  // Llama a la función 'getProducts' para obtener los datos de la API
+    getProducts().then((product) => setProduct(product));
+  }, []); */
+  return (
+    <Flex
+      flexWrap="wrap"
+      justifyContent="space-around"
+      alignItems="center"
+      gap={4}
+    >
+      <ItemDetail productos = {productos} />
+    {/*   {product.map((p) => {
+        return <ItemDetail key={p.id} product={p} />;
+      })} */}
+    </Flex>
   );
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;
