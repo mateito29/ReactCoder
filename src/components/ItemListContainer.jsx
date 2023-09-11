@@ -10,7 +10,7 @@ const ItemListContainer = () => {
     {
       id: 1,
       nombre: "Olla 1",
-      imagen:"../src/img/olla.png",
+      imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 1",
       stock: 10,
       categoria: "Ollas Chicas",
@@ -19,7 +19,7 @@ const ItemListContainer = () => {
     {
       id: 2,
       nombre: "Olla 2",
-      imagen:"../src/img/olla.png",
+      imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 2",
       stock: 5,
       categoria: "Ollas Chicas",
@@ -28,7 +28,7 @@ const ItemListContainer = () => {
     {
       id: 3,
       nombre: "Olla 3",
-      imagen:"../src/img/olla.png",
+      imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 3",
       stock: 7,
       categoria: "Ollas Medianas",
@@ -37,7 +37,7 @@ const ItemListContainer = () => {
     {
       id: 4,
       nombre: "Olla 4",
-      imagen:"../src/img/olla.png",
+      imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 4",
       stock: 9,
       categoria: "Ollas Medianas",
@@ -46,7 +46,7 @@ const ItemListContainer = () => {
     {
       id: 5,
       nombre: "Olla 5",
-      imagen:"../src/img/olla.png",
+      imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 5",
       stock: 3,
       categoria: "Ollas Grandes",
@@ -55,7 +55,7 @@ const ItemListContainer = () => {
     {
       id: 6,
       nombre: "Olla 6",
-      imagen:"../src/img/olla.png",
+      imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 6",
       stock: 20,
       categoria: "Ollas Grandes",
