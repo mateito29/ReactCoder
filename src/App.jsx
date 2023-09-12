@@ -8,8 +8,7 @@ const App = () => {
   document.body.style.backgroundColor = "#a69a81";
   return (
     <BrowserRouter>
-
-      <NavBar />
+       <NavBar />
 
       <Routes>
         <Route exact path="/" element={<ItemListContainer />}/>

@@ -33,7 +33,7 @@ const Item = ({ producto }) => {
         <CardFooter>
           <ButtonGroup>
             <Link to={`/item/${producto.id}`}>
-              <Button variant="solid" colorScheme="orange" bg="#000000">
+              <Button variant="solid" colorScheme="orange" bg="#222;">
                 Detalle
               </Button>
             </Link>
