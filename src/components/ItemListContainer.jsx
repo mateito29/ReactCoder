@@ -2,17 +2,33 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 // Define el componente ItemListContainer
 const ItemListContainer = () => {
   const { categoria } = useParams();
-  const productos = [
+  const [productos, setProductos] = useState([]);
+  useEffect(() => {
+    const db = getFirestore();
+
+    const itemCollection = collection(db, "ollas");
+    getDocs(itemCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
+      setProductos(docs);
+    });
+  });
+
+  /* const { categoria } = useParams(); */
+
+  /*  const productos = [
     {
       id: 1,
       nombre: "Olla 1",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 1",
-      stock: 10,
+      stock: 20,
       categoria: "Ollas Chicas",
       precio: 100,
     },
@@ -21,7 +37,7 @@ const ItemListContainer = () => {
       nombre: "Olla 2",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 2",
-      stock: 5,
+      stock: 20,
       categoria: "Ollas Chicas",
       precio: 200,
     },
@@ -30,7 +46,7 @@ const ItemListContainer = () => {
       nombre: "Olla 3",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 3",
-      stock: 7,
+      stock: 20,
       categoria: "Ollas Medianas",
       precio: 300,
     },
@@ -39,7 +55,7 @@ const ItemListContainer = () => {
       nombre: "Olla 4",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 4",
-      stock: 9,
+      stock: 20,
       categoria: "Ollas Medianas",
       precio: 400,
     },
@@ -48,7 +64,7 @@ const ItemListContainer = () => {
       nombre: "Olla 5",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 5",
-      stock: 3,
+      stock: 20,
       categoria: "Ollas Grandes",
       precio: 500,
     },
@@ -75,8 +91,7 @@ const ItemListContainer = () => {
     .then((res) => {})
     .catch((error) => {
       console.log(error);
-    });
-  const prodoctoFiltrados = productos.filter(
+    }) */ const prodoctoFiltrados = productos.filter(
     (producto) => producto.categoria === categoria
   );
   return categoria ? (

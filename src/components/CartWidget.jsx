@@ -1,9 +1,12 @@
 import { Box, Divider, Flex } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from "../context/ShoppingCartContext";
 
 const CartWidget = () => {
+  const {cart} = useContext(CartContext)
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   return (
     <div>
       <Flex>
@@ -14,7 +17,7 @@ const CartWidget = () => {
         </Box>
         <Divider />
         <Box>
-          <h1 className="carrito-numero">6</h1>
+        <h1 className="carrito-numero">{totalQuantity}</h1>
         </Box>
       </Flex>
     </div>

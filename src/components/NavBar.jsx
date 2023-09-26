@@ -16,35 +16,34 @@ const NavBar = () => {
         <div>
           <MenuButton
             className="menu-button"
-            color="black"
-            bg="#C4C1A4"
+            color="#EAC696"
+            bg="#65451F"
             boxShadow="0 0 1rem rgba(0, 0, 0, 1);"
             fontFamily="mono"
-            background={"transparent"}
           >
             CATEGORIAS
           </MenuButton>
         </div>
         <MenuList
           className="menu-list"
-          color="black"
-          bg="#fef7d5"
+          color="#EAC696"
+          bg="#65451F"
           border="1px solid black"
-          boxShadow="0 0 1rem"
+          boxShadow="0 0 10px"
           fontFamily="mono"
         >
           <Link to={`/categoria/${"Ollas Chicas"}`}>
-          <MenuItem className="menu-item" bg="#fef7d5">
+          <MenuItem className="menu-item" bg="#65451F">
             Ollas Chicas
           </MenuItem>
           </Link>
           <Link to={`/categoria/${"Ollas Medianas"}`}>
-          <MenuItem className="menu-item" bg="#fef7d5">
+          <MenuItem className="menu-item" bg="#65451F">
             Ollas Medianas
           </MenuItem>
           </Link>
           <Link to={`/categoria/${"Ollas Grandes"}`}>
-          <MenuItem className="menu-item" bg="#fef7d5">
+          <MenuItem className="menu-item" bg="#65451F">
             Ollas Grandes
           </MenuItem>
           </Link>

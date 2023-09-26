@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const Item = ({ producto }) => {
   return (
     <div>
-      <Card maxW="sm" mt={10} bg="#E4E4D0" width="100vw" height="auto">
+      <Card maxW="sm" mt={10} bg="#C8AE7D" width="100vw" height="auto">
         <CardBody>
           <Image
             src={producto.imagen}
@@ -33,7 +33,7 @@ const Item = ({ producto }) => {
         <CardFooter>
           <ButtonGroup>
             <Link to={`/item/${producto.id}`}>
-              <Button variant="solid" colorScheme="orange" bg="#222;">
+              <Button id="btn-detail">
                 Detalle
               </Button>
             </Link>

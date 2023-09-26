@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { Flex } from "@chakra-ui/react";
 
 const ItemDetailContainer = () => {
+  const [productos, setProductos] = useState([]);
+  const {id} = useParams()
+  useEffect(() => {
+    const db = getFirestore();
 
-  const productos = [
+    const oneItem = doc(db, "ollas", `${id}`);
+    getDoc(oneItem).then((snapshot) => {
+      if (snapshot.exists()){
+        const docs = snapshot.data()
+        setProductos(docs)
+      }
+    })
+  },[]);
+  /* const filteredProduct = productos.filter((producto) => producto.id == id); */
+  /*   const productos = [
     {
       id: 1,
       nombre: "Olla 1",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 1",
-      stock: 10,
+      stock: 20,
       categoria: "Ollas Chicas",
       precio: 100,
     },
@@ -19,7 +34,7 @@ const ItemDetailContainer = () => {
       nombre: "Olla 2",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 2",
-      stock: 5,
+      stock: 20,
       categoria: "Ollas Chicas",
       precio: 200,
     },
@@ -28,7 +43,7 @@ const ItemDetailContainer = () => {
       nombre: "Olla 3",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 3",
-      stock: 7,
+      stock: 20,
       categoria: "Ollas Medianas",
       precio: 300,
     },
@@ -37,7 +52,7 @@ const ItemDetailContainer = () => {
       nombre: "Olla 4",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 4",
-      stock: 9,
+      stock: 20,
       categoria: "Ollas Medianas",
       precio: 400,
     },
@@ -46,7 +61,7 @@ const ItemDetailContainer = () => {
       nombre: "Olla 5",
       imagen: "../src/img/olla.png",
       descripcion: "Descripcion Olla 5",
-      stock: 3,
+      stock: 20,
       categoria: "Ollas Grandes",
       precio: 500,
     },
@@ -75,7 +90,7 @@ const ItemDetailContainer = () => {
       })
       .catch((error) => {
         console.log(error);
-      });
+      });  */
   return (
     <Flex
       flexWrap="wrap"
