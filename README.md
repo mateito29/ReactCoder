@@ -36,4 +36,4 @@ npm install
 4.Iniciar la aplicación.
 npm start
 
-![GIF](src/img/navegacion.gif)
+![gifNavegacion](src/img/navegacion.gif)
