@@ -3,9 +3,8 @@ import { useState, useContext } from "react";
 import { Button } from "@chakra-ui/react";
 import { CartContext } from "../context/ShoppingCartContext";
 
-
-const ItemCount = ({handleAdd}) => {
-  const [contador, setContador] = useState(0);
+const ItemCount = ({ initial, onAdd }) => {
+  const [contador, setContador] = useState(initial);
   const sumarContador = () => {
     if (contador < 10) {
       setContador(contador + 1);
@@ -16,16 +15,9 @@ const ItemCount = ({handleAdd}) => {
       setContador(contador - 1);
     }
   };
-  const onAdd = () => {
-    if (contador > 0) {
-      handleAdd(contador);
-      setContador(0);
-    }
-  };
-
   return (
     <div className="count-container">
-      <div className="button" onClick={onAdd}>
+      <div className="button" onClick={() => onAdd(contador)}>
         <div className="button-wrapper">
           <div className="text">Agregar</div>
           <span className="icon">
@@ -44,12 +36,12 @@ const ItemCount = ({handleAdd}) => {
       </div>
 
       <div className="item-container">
-        <button className="item-count" onClick={sumarContador}>
-          +
-        </button>
-        <p className="parrafo-count">{contador}</p>
         <button className="item-count" onClick={restarContador}>
           -
+        </button>
+        <p className="parrafo-count">{contador}</p>
+        <button className="item-count" onClick={sumarContador}>
+          +
         </button>
       </div>
     </div>

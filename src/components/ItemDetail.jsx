@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../context/ShoppingCartContext";
 import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardBody,
@@ -13,39 +14,50 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
-
-const ItemDetail = ({ productos }) => {
+const ItemDetail = ({ producto }) => {
   const { addItem } = useContext(CartContext);
-  function handleAddItem(quantity) {
-    addItem(null, quantity);
-  }
+  const [goToCart, setGoToCart] = useState(false);
+  const onAdd = (quantity) => {
+    setGoToCart(true);
+    addItem(producto, quantity);
+  };
   return (
-    <div>
+    <div className="item-detail">
       <Card maxW="sm" mt={10} bg="#C8AE7D" width="100vw" height="auto">
         <CardBody>
           <Image
-            src={productos.imagen}
+            src={producto.imagen}
             borderRadius="lg"
             width="100%"
             height="250px"
           />
           <Stack mt="6" spacing="2" fontSize="sm">
             <Heading size="md" color="#040D12" textAlign="center">
-              {productos.nombre}
+              {producto.nombre}
             </Heading>
             <Text color="#040D12" textAlign="center">
-              {productos.descripcion}
+              {producto.descripcion}
             </Text>
             <Text color="#000000" fontSize="2xl" textAlign="center">
-              ${productos.precio}
+              ${producto.precio}
             </Text>
           </Stack>
         </CardBody>
         <Divider />
         <CardFooter>
           <ButtonGroup>
-            <ItemCount handleAdd={handleAddItem} />
+            {goToCart ? (
+              <>
+                <Link to="/cart">
+                  <button className="btnGoToCart">Ir al carrito</button>
+                </Link>
+                <Link to="/">
+                  <button className="btnGoToCart">Volver al inicio</button>
+                </Link>
+              </>
+            ) : (
+              <ItemCount initial={1} onAdd={onAdd} />
+            )}
           </ButtonGroup>
         </CardFooter>
       </Card>

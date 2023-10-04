@@ -5,8 +5,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../context/ShoppingCartContext";
 
 const CartWidget = () => {
-  const {cart} = useContext(CartContext)
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const { totalProducts } = useContext(CartContext);
   return (
     <div>
       <Flex>
@@ -17,7 +16,7 @@ const CartWidget = () => {
         </Box>
         <Divider />
         <Box>
-        <h1 className="carrito-numero">{totalQuantity}</h1>
+          <h1 className="carrito-numero">{totalProducts() || "0"}</h1>
         </Box>
       </Flex>
     </div>

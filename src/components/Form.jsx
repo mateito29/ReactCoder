@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button, Stack } from "@chakra-ui/react";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Form = () => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -9,13 +10,21 @@ const Form = () => {
   const db = getFirestore();
   const handleSubmit = (e) => {
     e.preventDefault();
-    nombre === ""
-      ? alert("Por favor ingresa tu nombre")
-      : alert(`Hola ${nombre}`);
-    email === ""
-      ? alert("Por favor ingresa tu email")
-      : alert(`Tu email es ${email}`);
-    addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+
+    // Validar que los campos estén llenos
+    if (nombre === "" || email === "") {
+      toast.error("Por favor ingresa tu nombre y tu email");
+      return;
+    }
+
+    const order = { nombre, email };
+    addDoc(ordersCollection, order)
+      .then(({ id }) => {
+        toast.success(`Hola ${nombre}`);
+        toast.info(`Tu email es ${email}`);
+        setOrderId(id);
+      })
+      .catch((error) => console.error("Error al agregar la orden:", error));
   };
   const order = {
     nombre,
@@ -39,12 +48,15 @@ const Form = () => {
         />
         <Stack spacing={4} direction="column" align="center">
           <Button colorScheme="blackAlpha" size="sm" type="submit">
-            Enviar
+            COMPRAR
           </Button>
         </Stack>
       </form>
 
-      <h3 className="title-compra">Id de tu compra: {orderId}</h3>
+      {orderId && (
+        <h3 className="title-compra">Id de tu compra: {orderId}</h3>
+      )}
+      <ToastContainer position="top-right" autoClose={5000} />
     </>
   );
 };
