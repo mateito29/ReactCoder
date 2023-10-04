@@ -24,7 +24,6 @@ Se incluye un formulario de checkout donde los usuarios pueden ingresar su infor
 Instalación y Ejecución
 Para ejecutar la aplicación en un entorno local, siga estos pasos:
 
-<<<<<<< HEAD
 1.Clonar este repositorio en su máquina local.
 git clone https://github.com/mateito29/ReactCoder
 
@@ -38,8 +37,3 @@ npm install
 npm start
 
 ![GIF](src/img/navegacion.gif)
-=======
-git clone https://github.com/mateito29/ReactCoder
-
-![GIF](src/img/navegacion.gif)
->>>>>>> 9c962d4d3e57b5dd7667ec44730da790782fcadb
